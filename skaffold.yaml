@@ -1,0 +1,25 @@
+apiVersion: skaffold/v2beta8
+kind: Config
+metadata:
+  name: public-api
+build:
+  artifacts:
+  - image: optocare/publicapi
+    context: .
+    jib:
+      project: uk.co.optocare:public-api
+deploy:
+  kustomize:
+    paths:
+      - k8s/base
+profiles:
+  - name: development
+    deploy:
+      kustomize:
+        paths:
+          - k8s/overlays/development
+  - name: production
+    deploy:
+      kustomize:
+        paths:
+          - k8s/overlays/production

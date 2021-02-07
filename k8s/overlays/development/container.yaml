@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: public-api
+spec:
+  selector:
+    matchLabels:
+      app: public-api
+  template:
+    spec:
+      containers:
+        - image: optocare/publicapi
+          name: public-api
+          resources: {}

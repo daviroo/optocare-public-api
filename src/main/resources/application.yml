@@ -1,0 +1,24 @@
+auth0:
+  audience: http://localhost:8080
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://optocare-dev.eu.auth0.com/
+  jpa:
+    database: POSTGRESQL
+    generate-ddl: true
+    hibernate:
+      globally_quoted_identifiers: true
+      ddl-auto: create
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO

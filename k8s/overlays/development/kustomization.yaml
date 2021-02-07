@@ -1,0 +1,12 @@
+bases:
+  - ../../base
+resources:
+  - kube-dns.yaml
+  - spring-cloud-role.yaml
+patchesStrategicMerge:
+  - replicas.yaml
+  - profiles.yaml
+  - environment.yaml
+  - mysql-deployment.yaml
+  - mysql-storage.yaml
+  - mysql-service.yaml
